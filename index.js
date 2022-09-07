@@ -68,7 +68,9 @@ function calculadora(precioCorte, opcionPago) {
   }
 }
 
-producto.precio = calculadora(producto.precio, pago);
+producto.precio = calculadora(producto.precio, pago.toUpperCase());
+
+console.log(producto.precio);
 
 alert(
   `FELICITACIONES ${cliente1.nombre} ${cliente1.apellido}, ya tenes tu turno para el dia de hoy a las ${horarioCorte}. El corte de pelo a realizar es el ${producto.nombre} y cuesta ${producto.precio}. Te enviaremos esta informacion al ${cliente1.cel} y al siguiente mail: ${cliente1.mail} TE ESPERAMOS!!!`
