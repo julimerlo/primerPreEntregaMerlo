@@ -52,22 +52,23 @@ let corte = prompt("Ingrese el nombre del corte a realizar");
 let producto = cortes.find((item) => item.nombre === corte.toUpperCase());
 console.log(producto.precio);
 
-/* let pago = prompt(
+let pago = prompt(
   `El corte elegido cuesta $${producto.precio}, si pagas en EFECTIVO = 10% de descuento, con TARJETA = 15% de recargo. Como deseas abonar?? EFECTIVO o TARJETA??`
 );
 
-switch (pago.toUpperCase) {
-  case "EFECTIVO":
-    producto.precio * 0.9;
-    break;
+function calculadora(precioCorte, opcionPago) {
+  switch (opcionPago) {
+    case "EFECTIVO":
+      return precioCorte * 0.9;
+      break;
 
-  case "TARJETA":
-    producto.precio * 1.1;
-    break;
+    case "TARJETA":
+      return precioCorte + precioCorte * 0.15;
+      break;
+  }
 }
 
-console.log(producto.precio);
-alert(producto.precio); */
+producto.precio = calculadora(producto.precio, pago);
 
 alert(
   `FELICITACIONES ${cliente1.nombre} ${cliente1.apellido}, ya tenes tu turno para el dia de hoy a las ${horarioCorte}. El corte de pelo a realizar es el ${producto.nombre} y cuesta ${producto.precio}. Te enviaremos esta informacion al ${cliente1.cel} y al siguiente mail: ${cliente1.mail} TE ESPERAMOS!!!`
