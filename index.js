@@ -18,6 +18,15 @@ console.log(cliente1);
 
 const horariosCorte = ["8:00", "9:00", "10:00", "11:00", "12:00"];
 
+let listaHorarios = document.getElementById("listaHorarios");
+
+for (let index = 0; index < 5; index++) {
+  let div = document.createElement("div");
+  div.innerHTML = `<h4>${horariosCorte[index]}HS</h4>`;
+
+  listaHorarios.append(div);
+}
+
 for (let index = 0; index < 5; index++) {
   alert(horariosCorte[index]);
 }
@@ -72,6 +81,23 @@ producto.precio = calculadora(producto.precio, pago.toUpperCase());
 
 console.log(producto.precio);
 
-alert(
-  `FELICITACIONES ${cliente1.nombre} ${cliente1.apellido}, ya tenes tu turno para el dia de hoy a las ${horarioCorte}. El corte de pelo a realizar es el ${producto.nombre} y cuesta ${producto.precio}. Te enviaremos esta informacion al ${cliente1.cel} y al siguiente mail: ${cliente1.mail} TE ESPERAMOS!!!`
-);
+let listaCortes = document.getElementById("listaCortes");
+
+for (const tipo of cortes) {
+  let div = document.createElement("div");
+  div.innerHTML = `<h3> ID: ${tipo.id}</h3>
+    <p>Corte: ${tipo.nombre}</p>
+    <b>Precio: $${tipo.precio}</b>`;
+
+  listaCortes.append(div);
+}
+
+let boton = document.getElementById("btnPrincipal");
+let ticket = document.getElementById("ticket");
+
+boton.addEventListener("click", function () {
+  let div = document.createElement("div");
+  div.innerHTML = `<h3>FELICITACIONES ${cliente1.nombre} ${cliente1.apellido}, ya tenes tu turno para el dia de hoy a las ${horarioCorte}. El corte de pelo a realizar es el ${producto.nombre} y cuesta ${producto.precio}. Te enviaremos esta informacion al ${cliente1.cel} y al siguiente mail: ${cliente1.mail} TE ESPERAMOS!!!</h3>`;
+
+  ticket.append(div);
+});
